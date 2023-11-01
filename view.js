@@ -1,16 +1,32 @@
 export default class View {
     constructor() {
         this.area = document.querySelector('#area');
-        this.cell = document.getElementsByClassName('cell');
+        this.cells = document.querySelectorAll('.cell');
+        this.header = document.querySelector('#display');
     }
 
-    hookArea() {
-        this.area.addEventListener('click', function (e) {
-            if (e.target.className == 'cell') {
-                console.log(e);
-            }
-        })
+
+    listenAreaClick(callback) {
+        this.area.addEventListener('click', callback);
     }
+
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+    // updateGame() {
+    //     this.header.innerText = 'TIC TAC TOE';
+    //     for (let cell of this.cells) {
+    //         cell.innerText = '';
+    //     }
+    // }

@@ -5,13 +5,20 @@ export default class Controller {
     }
 
     init() {
-        this.view.hookArea();
+        this.view.listenAreaClick(this.onSteps.bind(this));
+
+
     }
 
 
+    onSteps(e) {
+        this.model.whoMove(e);
+    }
 
 
+    onUpdate() {
 
+    }
 
 
 }
