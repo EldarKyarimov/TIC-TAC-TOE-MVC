@@ -3,6 +3,7 @@ export default class View {
         this.area = document.querySelector('#area');
         this.cells = document.querySelectorAll('.cell');
         this.header = document.querySelector('#display');
+        this.start = document.querySelector('#start');
     }
 
 
@@ -10,7 +11,9 @@ export default class View {
         this.area.addEventListener('click', callback);
     }
 
-
+    startButton(callback) {
+        this.start.addEventListener('click', callback);
+    }
 
 }
 

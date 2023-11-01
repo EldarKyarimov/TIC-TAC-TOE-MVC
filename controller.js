@@ -6,7 +6,7 @@ export default class Controller {
 
     init() {
         this.view.listenAreaClick(this.onSteps.bind(this));
-
+        this.view.startButton(this.onUpdate.bind(this));
 
     }
 
@@ -17,7 +17,7 @@ export default class Controller {
 
 
     onUpdate() {
-
+        this.model.restart()
     }
 
 

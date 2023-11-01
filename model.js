@@ -1,23 +1,24 @@
 export default class Model {
     constructor() {
-        this.counter = 0
+        this.counter = 0;
     }
-
-
-
+    checkStep(e) {
+        if (e.target.className == "cell" || e.target.innerText) { }
+    }
     whoMove(e) {
         if (e.target.className == "cell") {
             if (this.counter % 2 == 0) {
                 e.target.innerText = 'X';
+
             } else {
                 e.target.innerText = 'O';
+
             }
             this.counter++;
+            console.log(this.counter);
+            console.log(e);
         }
-
-
     }
-
 
     winSteps() {
         this.winIndex = [
@@ -31,4 +32,7 @@ export default class Model {
             [2, 4, 6],
         ];
     }
+
+
+
 }
