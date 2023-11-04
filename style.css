@@ -49,9 +49,20 @@ body {
     width: 100px;
     height: 100px;
     background-color: rgb(23, 189, 172);
+    text-align: center;
+    font-size: 90px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
 .cell:hover {
     background-color: rgb(37, 223, 204);
+}
+
+.x {
+    color: #545454;
+}
+
+.o {
+    color: #F2EBD2;
 }

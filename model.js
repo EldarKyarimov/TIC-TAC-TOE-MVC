@@ -1,24 +1,65 @@
 export default class Model {
     constructor() {
         this.counter = 0;
-    }
-    checkStep(e) {
-        if (e.target.className == "cell" || e.target.innerText) { }
-    }
-    whoMove(e) {
-        if (e.target.className == "cell") {
-            if (this.counter % 2 == 0) {
-                e.target.innerText = 'X';
-
-            } else {
-                e.target.innerText = 'O';
-
-            }
-            this.counter++;
-            console.log(this.counter);
-            console.log(e);
+        this.players = {
+            x: 'X',
+            o: 'O',
         }
+        this.currentPlayer = '';
+        this.isGameStarted = false;
+        this.cellsInfo = [];
+        this.winner = '';
+
     }
+
+
+
+    startGame(cells) {
+        this.isGameStarted = true;
+        // this.winner.innerText = '';
+        this.currentPlayer = this.players.x;
+        this.cellsInfo = [];
+    }
+
+    checkGameOver() {
+
+    }
+
+    finishGame() {
+
+    }
+
+    checkStep(e) {
+        if (!this.isGameStarted) {
+            return
+        }
+        if (e.target.innerText) {
+            return
+        }
+        e.target.innerText = this.currentPlayer;
+        const cellIndex = e.target.id;
+        this.cellsInfo[cellIndex] = this.currentPlayer;
+
+        console.log(e.target.id);
+        console.log(this.cellsInfo);
+    }
+
+
+    // whoMove(e) {
+    //     if (e.target.className == "cell") {
+    //         if (this.counter % 2 == 0) {
+    //             e.target.innerText = 'X';
+
+    //         } else {
+    //             e.target.innerText = 'O';
+
+    //         }
+    //         this.counter++;
+    //         console.log(this.counter);
+    //         console.log(e);
+    //     }
+    // }
+
 
     winSteps() {
         this.winIndex = [

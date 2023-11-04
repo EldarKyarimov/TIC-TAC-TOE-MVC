@@ -5,19 +5,20 @@ export default class Controller {
     }
 
     init() {
+        this.view.startButtonClick(this.onRestart.bind(this));
         this.view.listenAreaClick(this.onSteps.bind(this));
-        this.view.startButton(this.onUpdate.bind(this));
-
     }
 
 
     onSteps(e) {
-        this.model.whoMove(e);
+        // this.model.whoMove(e);
+        this.model.checkStep(e);
     }
 
 
-    onUpdate() {
-        this.model.restart()
+    onRestart(cells) {
+        this.model.startGame(cells);
+        this.view.clearCells();
     }
 
 
