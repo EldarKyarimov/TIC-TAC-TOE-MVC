@@ -11,8 +11,7 @@ export default class Controller {
 
 
     onSteps(e) {
-        // this.model.whoMove(e);
-        this.model.checkStep(e);
+        this.model.checkProcess(e);
     }
 
 
@@ -20,6 +19,8 @@ export default class Controller {
         this.model.startGame(cells);
         this.view.clearCells();
     }
+
+
 
 
 }

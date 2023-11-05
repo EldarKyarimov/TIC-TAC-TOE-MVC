@@ -11,18 +11,9 @@ export default class View {
         this.area.addEventListener('click', callback);
     }
 
-    // listenAreaClick(callback) {
-    //     this.cells.forEach((cell) => {
-    //         cell.addEventListener('click', callback);
-    //     })
-    // }
-
-
     startButtonClick(callback) {
         this.startButton.addEventListener('click', callback);
     }
-
-
 
     clearCells() {
         this.cells.forEach(cell => cell.innerText = '');
