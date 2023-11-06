@@ -8,9 +8,8 @@ export default class Model {
         this.currentPlayer = '';
         this.isGameStarted = false;
         this.allCells = ['', '', '', '', '', '', '', '', ''];
-        // this.allCells = [];
         this.winner = '';
-        this.display = " plays";
+        this.s = " plays";
 
         this.winLines = [
             [0, 1, 2],
@@ -33,17 +32,13 @@ export default class Model {
     }
 
     checkProcess(e) {
-        if (!this.isGameStarted) {
+        if (!this.isGameStarted || e.target.innerText) {
             return
         }
-        if (e.target.innerText) {
-            return
-        }
+
         e.target.innerText = this.currentPlayer;
         const cellIndex = e.target.id;
         this.allCells[cellIndex] = this.currentPlayer;
-
-        console.log(e.target.id);
         console.log(this.allCells);
         // ======================================== исход игры
         if (this.checkGameOver()) {
@@ -52,22 +47,21 @@ export default class Model {
         // ========================================
         if (this.currentPlayer === this.players.x) {
             return this.currentPlayer = this.players.o;
-
-            // вывести иформацию  player в display
         } else {
             this.currentPlayer = this.players.x;
-
-            // вывести иформацию player в display
         }
+
     }
 
     checkGameOver() {
         for (let line of this.winLines) {
             if (this.checkWinLine(line)) {
-
-                // this.winner = `${this.currentPlayer} Win!`;
                 return true;
             }
+        }
+        if (!this.allCells.includes('')) {
+            this.winner = "nicya";
+            return true;
         }
     }
 
@@ -82,15 +76,14 @@ export default class Model {
             return false;
         }
         if (cellA === cellB && cellB === cellC) {
-            console.log('don');
+            this.winner = `${this.currentPlayer} Win!`;
+            console.log(this.winner);
         }
     }
 
-
-    // 
-
     finishGame() {
-
+        this.isGameStarted = false;
+        // console.log(this.winner);
     }
 
 

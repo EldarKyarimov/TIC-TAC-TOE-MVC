@@ -6,7 +6,6 @@ export default class View {
         this.startButton = document.querySelector('#start');
     }
 
-
     listenAreaClick(callback) {
         this.area.addEventListener('click', callback);
     }
@@ -17,28 +16,8 @@ export default class View {
 
     clearCells() {
         this.cells.forEach(cell => cell.innerText = '');
-        this.header.innerText = 'TIC TAC TOE';
+        this.header = 'TIC TAC TOE';
     }
 
 
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-    // updateGame() {
-    //     this.header.innerText = 'TIC TAC TOE';
-    //     for (let cell of this.cells) {
-    //         cell.innerText = '';
-    //     }
-    // }

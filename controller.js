@@ -7,20 +7,17 @@ export default class Controller {
     init() {
         this.view.startButtonClick(this.onRestart.bind(this));
         this.view.listenAreaClick(this.onSteps.bind(this));
-    }
 
+    }
 
     onSteps(e) {
         this.model.checkProcess(e);
     }
 
-
     onRestart(cells) {
         this.model.startGame(cells);
         this.view.clearCells();
     }
-
-
 
 
 }
