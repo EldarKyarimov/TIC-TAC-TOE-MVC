@@ -15,9 +15,11 @@ export default class View {
     }
 
     clearCells() {
-        this.cells.forEach(cell => cell.innerText = '');
-        this.header = 'TIC TAC TOE';
+        this.cells.forEach((cell) => (cell.innerText = ''));
+        this.header.innerText = 'TIC TAC TOE';
     }
 
-
+    updateHeader(winner) {
+        this.header.innerText = winner;
+    }
 }

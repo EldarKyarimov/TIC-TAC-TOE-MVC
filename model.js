@@ -4,12 +4,11 @@ export default class Model {
         this.players = {
             x: 'X',
             o: 'O',
-        }
+        };
         this.currentPlayer = '';
         this.isGameStarted = false;
         this.allCells = ['', '', '', '', '', '', '', '', ''];
         this.winner = '';
-        this.s = " plays";
 
         this.winLines = [
             [0, 1, 2],
@@ -21,7 +20,7 @@ export default class Model {
             [0, 4, 8],
             [2, 4, 6],
         ];
-
+        this.controller = null;
     }
 
     startGame(cells) {
@@ -33,24 +32,26 @@ export default class Model {
 
     checkProcess(e) {
         if (!this.isGameStarted || e.target.innerText) {
-            return
+            return;
         }
 
         e.target.innerText = this.currentPlayer;
         const cellIndex = e.target.id;
         this.allCells[cellIndex] = this.currentPlayer;
         console.log(this.allCells);
-        // ======================================== исход игры
+
+        // ========================================
+        // исход игры
         if (this.checkGameOver()) {
             return this.finishGame();
         }
         // ========================================
+
         if (this.currentPlayer === this.players.x) {
-            return this.currentPlayer = this.players.o;
+            return (this.currentPlayer = this.players.o);
         } else {
             this.currentPlayer = this.players.x;
         }
-
     }
 
     checkGameOver() {
@@ -60,9 +61,11 @@ export default class Model {
             }
         }
         if (!this.allCells.includes('')) {
-            this.winner = "nicya";
+            this.winner = 'Draw';
+            console.log(this.winner);
             return true;
         }
+        return false;
     }
 
     checkWinLine(line) {
@@ -78,15 +81,18 @@ export default class Model {
         if (cellA === cellB && cellB === cellC) {
             this.winner = `${this.currentPlayer} Win!`;
             console.log(this.winner);
+            this.controller.updateHeader(this.winner);
+            return true;
         }
+        return false;
     }
 
     finishGame() {
         this.isGameStarted = false;
-        // console.log(this.winner);
+        this.controller.updateHeader(this.winner);
     }
 
-
-
-
+    setController(controller) {
+        this.controller = controller;
+    }
 }

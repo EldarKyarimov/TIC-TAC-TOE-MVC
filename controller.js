@@ -5,9 +5,9 @@ export default class Controller {
     }
 
     init() {
+        this.model.setController(this);
         this.view.startButtonClick(this.onRestart.bind(this));
         this.view.listenAreaClick(this.onSteps.bind(this));
-
     }
 
     onSteps(e) {
@@ -19,5 +19,7 @@ export default class Controller {
         this.view.clearCells();
     }
 
-
+    updateHeader(winner) {
+        this.view.updateHeader(winner);
+    }
 }
