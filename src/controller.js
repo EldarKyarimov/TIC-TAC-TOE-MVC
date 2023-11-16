@@ -12,6 +12,8 @@ export default class Controller {
 
     onSteps(e) {
         this.model.checkProcess(e);
+        // this.model.finishGame();
+        // this.view.updateHeader(this.model.gameResult);
     }
 
     onRestart(cells) {
