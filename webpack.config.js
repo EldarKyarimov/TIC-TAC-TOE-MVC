@@ -20,7 +20,6 @@ module.exports = {
                 test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'style-loader',
                     'css-loader',
                 ],
             },
@@ -37,6 +36,6 @@ module.exports = {
     ],
     devServer: {
         static: path.join(__dirname, 'dist'),
-        port: 8080,
+        port: 8880,
     },
 };
